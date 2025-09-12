@@ -36,16 +36,6 @@ def save_file(path, func_name, sub_g1s, sub_g2s, binary_file1, binary_file2):
         print("write error==>", e)
 
 
-def get_nodes(sub_g):
-    nodes = set()
-    for i in range(len(sub_g.corresponding_nodes)):
-        if sub_g.corresponding_nodes[i] != -1: #有对齐节点，属于最大相似子图
-            nodes.add(i)
-        elif sub_g.node_simplification_succs[i] != -1 and sub_g.corresponding_nodes[sub_g.node_simplification_succs[i]] != -1: #被简化节点的端节点属于最大相似子图，则它也属于
-            nodes.add(i)
-    return nodes
-
-
 def processing(file_config_pair):
     save_subgraphs_file = save_subgraphs_dir+file_config_pair+'.json'
 
